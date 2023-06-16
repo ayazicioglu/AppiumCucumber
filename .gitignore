@@ -2,8 +2,11 @@ target/
 !.mvn/wrapper/maven-wrapper.jar
 !**/src/main/**/target/
 !**/src/test/**/target/
-
+apps/
+Driver/
 ### IntelliJ IDEA ###
+*.Driver
+*.apps
 .idea/modules.xml
 .idea/jarRepositories.xml
 .idea/compiler.xml
