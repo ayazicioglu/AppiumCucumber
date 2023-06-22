@@ -1,5 +1,4 @@
 
-@wip
 Feature: Aile Butcem Login Page
 
   Scenario: Kullanici aile butcem uygulamasina basarili bir sekilde giris yaparak ilgili gorevleri yerine getirir
