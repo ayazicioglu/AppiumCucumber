@@ -17,18 +17,20 @@ import java.time.Duration;
 import java.util.Date;
 
 public class ReusableMethods {
-    static AndroidDriver<AndroidElement> driver=Driver.getAndroidDriver();
-    static TouchAction action=new TouchAction<>(driver);
+    static AndroidDriver<AndroidElement> driver = Driver.getAndroidDriver();
+    static TouchAction action = new TouchAction<>(driver);
+
     public static void scrollWithUiScrollable(String elementText) {
-        AndroidDriver driver = (AndroidDriver)  Driver.getAndroidDriver();
+        AndroidDriver driver = (AndroidDriver) Driver.getAndroidDriver();
         driver.findElementByAndroidUIAutomator("new UiScrollable(new UiSelector()).scrollIntoView(text(\"" + elementText + "\"))");
         driver.findElementByXPath("//*[@text='" + elementText + "']").click();
     }
+
     public static String getScreenshot(String name) throws IOException {
         // naming the screenshot with the current date to avoid duplication
         String date = new SimpleDateFormat("yyyyMMddhhmmss").format(new Date());
         // TakesScreenshot is an interface of selenium that takes the screenshot
-        TakesScreenshot ts = (TakesScreenshot)Driver.getAndroidDriver();
+        TakesScreenshot ts = (TakesScreenshot) Driver.getAndroidDriver();
 
         File source = ts.getScreenshotAs(OutputType.FILE);
         // full path to the screenshot location
@@ -38,22 +40,26 @@ public class ReusableMethods {
         FileUtils.copyFile(source, finalDestination);
         return target;
     }
-    public static void bekle(int saniye){
+
+    public static void bekle(int saniye) {
         try {
-            Thread.sleep(saniye*1000);
+            Thread.sleep(saniye * 1000);
         } catch (InterruptedException e) {
         }
     }
-    public static void koordinataTikla(int xKoordinat,int yKoordinat){
-        action.press(PointOption.point(xKoordinat,yKoordinat)).release().perform();
+
+    public static void koordinataTikla(int xKoordinat, int yKoordinat) {
+        action.press(PointOption.point(xKoordinat, yKoordinat)).release().perform();
     }
-    public static void birNoktadanDigerineSurukle(int x1, int y1, int x2, int y2){
-        action.press(PointOption.point(x1,y1)).            //Baslangic koordinatlarini belirle
+
+    public static void birNoktadanDigerineSurukle(int x1, int y1, int x2, int y2) {
+        action.press(PointOption.point(x1, y1)).            //Baslangic koordinatlarini belirle
                 waitAction(WaitOptions.waitOptions(Duration.ofMillis(500))).// bekleme suresini belirle
-                moveTo(PointOption.point(x2,y2)).            //Bitis koordinatlarini belirle
+                moveTo(PointOption.point(x2, y2)).            //Bitis koordinatlarini belirle
                 release().perform();
     }
-    public static void yazilanlariBackspaceleSil(){
+
+    public static void yazilanlariBackspaceleSil() {
         for (int i = 0; i < 50; i++) {
             driver.getKeyboard().sendKeys(Keys.BACK_SPACE);
         }
