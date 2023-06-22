@@ -15,7 +15,7 @@ Feature: Bir kullanici olarak siteye kaydoldugum email ve password bilgilerimle 
     *  Kullanici emailBox a "mailMeal" passwordbox a bir "sifre" gonderir
     *  Kullanici giris islemini dogrular
     *  Kullanici sayfayi kapatir
-  @smoke
+
   Scenario Outline: Kullanici gecersiz mail ve sifre bilgileriyle giris yapmamalidir
     *  Kullanici emailBox a "<mailMeal>" passwordbox a bir "<sifre>" gonderir
     *  Kullanici sayfayi kapatir
