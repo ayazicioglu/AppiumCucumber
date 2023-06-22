@@ -1,5 +1,4 @@
 
-@us02
 Feature: Bir ziyaretci olarak headr kismindaki fonnksiyonlar erisilebilir olmalidir
 
 
