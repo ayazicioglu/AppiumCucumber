@@ -10,10 +10,10 @@ public class ConfigReader {
     private static Properties properties;
 
     static {
-        String path="configuration.properties";
+        String path = "configuration.properties";
         try {
-            FileInputStream fileInputStream=new FileInputStream(path);
-            properties=new Properties();
+            FileInputStream fileInputStream = new FileInputStream(path);
+            properties = new Properties();
             properties.load(fileInputStream);
             fileInputStream.close();
         } catch (FileNotFoundException e) {
@@ -22,7 +22,8 @@ public class ConfigReader {
             e.printStackTrace();
         }
     }
-    public static String getProperty(String key){
+
+    public static String getProperty(String key) {
         return properties.getProperty(key);
     }
 }
